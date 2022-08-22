@@ -14,18 +14,18 @@
         android:padding="20dp">
 
         <Button
-            android:id="@+id/botao_botaoCadastrarTanque"
+            android:id="@+id/botao_CadastrarTanque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cadastrar Tanque" />
 
         <Button
-            android:id="@+id/botao_imprimirEstatisticas"
+            android:id="@+id/botao_deletarTanque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Imprimir Estatísticas" />
+            android:text="Deletar Tanque" />
 
         <Button
             android:id="@+id/botao_logout"
