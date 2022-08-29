@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             Snackbar mySnackbar = Snackbar.make(campos_login,
-                    "Erro", Snackbar.LENGTH_LONG);
+                    "Erro ao logar", Snackbar.LENGTH_LONG);
             mySnackbar.show();
         }
 
