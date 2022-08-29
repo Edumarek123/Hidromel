@@ -15,27 +15,26 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
     //atributos
 
-    private EditText tvUsuario;
-    private EditText tvSenha;
+    private EditText evUsuario;
+    private EditText evSenha;
     private Button btLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvUsuario = (EditText)findViewById(R.id.campo_email_login);
-        tvSenha = (EditText)findViewById(R.id.campo_senha_login);
+        evUsuario = (EditText)findViewById(R.id.campo_email_login);
+        evSenha = (EditText)findViewById(R.id.campo_senha_login);
         Button botao_login=(Button)findViewById(R.id.botao_login);
-        botao_login.setOnClickListener(this::onClick);
+        botao_login.setOnClickListener(this::l_ogar);
     }
 
-    public void onClick(View campos_login){
-        if (tvUsuario.getText().toString().equals( "usuario") && tvSenha.getText().toString().equals( "123")){
+    public void l_ogar(View v){
+        if (evUsuario.getText().toString().equals( "usuario") && evSenha.getText().toString().equals( "123")){
             Intent intent=new Intent(MainActivity.this, Menu.class);
             startActivity(intent);
         } else {
-            Snackbar mySnackbar = Snackbar.make(campos_login,
-                    "Erro ao logar", Snackbar.LENGTH_LONG);
+            Snackbar mySnackbar = Snackbar.make(v, "Erro ao logar", Snackbar.LENGTH_LONG);
             mySnackbar.show();
         }
 
