@@ -40,7 +40,7 @@ public class Usuario {
         }catch (JSONException exception){
             exception.printStackTrace();
         }
-        
+
         return arquivo;
     }
 
