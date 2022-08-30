@@ -22,18 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        LoginFragment login_page=new LoginFragment();
+        LoginFragment login_page=new LoginFragment();
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.pagesLayout, login_page);
+        transaction.commit();
+
+
+//        MenuFragment menu_page=new MenuFragment();
 //        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.loginPage, login_page);
+//        transaction.replace(R.id.pagesLayout, menu_page);
 //        transaction.commit();
-
-
-        MenuFragment mennu_page=new MenuFragment();
-        FragmentManager fragmentManager= getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menuPage, mennu_page);
-        fragmentTransaction.commit();
-
     }
 
 }

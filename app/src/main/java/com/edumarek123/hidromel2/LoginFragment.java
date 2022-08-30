@@ -34,19 +34,19 @@ public class LoginFragment extends Fragment {
         Button botao_login=(Button)login_page.findViewById(R.id.botao_login);
         botao_login.setOnClickListener(this::l_ogar);
 
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     public void l_ogar(View v){
-//        Snackbar mySnackbar = Snackbar.make(v, "Erro ao logar", Snackbar.LENGTH_LONG);
-//        mySnackbar.show();
-
-        MenuFragment menu_page=new MenuFragment();
-        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.loginPage, menu_page);
-        fragmentTransaction.commit();
+//        MenuFragment menu_page=new MenuFragment();
+//        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(, menu_page);
+//        fragmentTransaction.commit();
 
     }
+
+
 }
