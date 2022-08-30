@@ -1,6 +1,7 @@
 package com.edumarek123.hidromel2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -15,37 +16,24 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
-    //atributos
-
-    private EditText evUsuario;
-    private EditText evSenha;
-    private Button btLogin;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        evUsuario = (EditText)findViewById(R.id.campo_email_login);
-        evSenha = (EditText)findViewById(R.id.campo_senha_login);
-        Button botao_login=(Button)findViewById(R.id.button111);
-        botao_login.setOnClickListener(this::l_ogar);
-    }
 
-    public void l_ogar(View v){
+//        LoginFragment login_page=new LoginFragment();
+//        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.loginPage, login_page);
+//        transaction.commit();
 
-        /*if (evUsuario.getText().toString().equals("") && evSenha.getText().toString().equals("")){
-            Intent intent=new Intent(MainActivity.this, Menu.class);
-            startActivity(intent);
-        } else {
-            Snackbar mySnackbar = Snackbar.make(v, "Erro ao logar", Snackbar.LENGTH_LONG);
-            mySnackbar.show();
-        }*/
 
-        LoginFragment login_page=new LoginFragment();
-        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.loginPage, login_page);
-        transaction.commit();
+        MenuFragment mennu_page=new MenuFragment();
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.menuPage, mennu_page);
+        fragmentTransaction.commit();
 
     }
+
 }
