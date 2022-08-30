@@ -11,49 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="25dp"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-35dp">
+        android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/Bee1"
+        <FrameLayout
+            android:id="@+id/loginPage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bee1" />
+            android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email Usuário" />
-
-        <EditText
-            android:id="@+id/campo_email_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Senha Usuário" />
-
-        <EditText
-            android:id="@+id/campo_senha_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/botao_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGIN" />
+            <Button
+                android:id="@+id/button111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </FrameLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
