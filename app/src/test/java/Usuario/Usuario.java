@@ -3,6 +3,8 @@ package Usuario;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Tanque.Tanque;
+
 
 public class Usuario {
     //atributos
@@ -13,7 +15,7 @@ public class Usuario {
     private String permissao;
     private boolean termosOK;
 
-    private Tanque tanques;
+    private Tanque tanques[];
 
     //metodos
     public String getNome() {return nome;}
@@ -22,12 +24,21 @@ public class Usuario {
     public String getPermissao() {return permissao;}
     public boolean getTermosOK() {return termosOK;}
 
+    public Tanque getTanques() {
+
+        return null;
+    }
+
     public void setId(long id) {this.id=id;}
     public void setNome(String nome) {this.nome=nome;}
     public void setEmail(String email) {this.email=email;}
     public void setSenha(String senha) {this.senha=senha;}
     public void setPermissao(String permissao) {this.permissao=permissao;}
     public void setTermosOK(boolean termosOK) {this.termosOK=termosOK;}
+
+    public void setTanques(){
+
+    }
 
     public JSONObject toJsonObject(){
         JSONObject arquivo=new JSONObject();

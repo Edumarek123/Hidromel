@@ -17,14 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cadastrar Tanque" />
+            android:text="Cadastrar Tanque.Tanque" />
 
         <Button
             android:id="@+id/botao_deletarTanque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Deletar Tanque" />
+            android:text="Deletar Tanque.Tanque" />
 
         <Button
             android:id="@+id/botao_logout"
