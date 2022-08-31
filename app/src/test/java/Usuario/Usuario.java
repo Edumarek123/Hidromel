@@ -3,7 +3,6 @@ package Usuario;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import kotlin.text.UStringsKt;
 
 public class Usuario {
     //atributos
@@ -13,6 +12,8 @@ public class Usuario {
     private String senha;
     private String permissao;
     private boolean termosOK;
+
+    private Tanque tanques;
 
     //metodos
     public String getNome() {return nome;}
