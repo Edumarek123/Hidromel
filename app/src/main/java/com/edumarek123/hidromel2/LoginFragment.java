@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +27,8 @@ public class LoginFragment extends Fragment{
 
         View login_page=inflater.inflate(R.layout.fragment_login, container, false);
 
-        evUsuario = (EditText)findViewById(R.id.campo_email_login);
-            evSenha = (EditText)findViewById(R.id.campo_senha_login);
+        evUsuario = (EditText)login_page.findViewById(R.id.campo_email_login);
+        evSenha = (EditText)login_page.findViewById(R.id.campo_senha_login);
 
         Button botao_login=(Button)login_page.findViewById(R.id.botao_login);
         botao_login.setOnClickListener(this::l_ogar);
@@ -40,11 +39,17 @@ public class LoginFragment extends Fragment{
     }
 
     public void l_ogar(View v){
-        MenuFragment menu_page=new MenuFragment();
-        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.pagesLayout, menu_page);
-        fragmentTransaction.commit();
+        if (evUsuario.getText().toString().equals("") && evSenha.getText().toString().equals("")){
+            MenuFragment menu_page=new MenuFragment();
+            FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.pagesLayout, menu_page);
+            fragmentTransaction.commit();
+        } else{
+            Snackbar mySnackbar = Snackbar.make( v,
+                    "Erro ao Logar", Snackbar.LENGTH_SHORT);
+            mySnackbar.show();
+        }
 
     }
 
