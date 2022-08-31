@@ -3,6 +3,7 @@ package com.edumarek123.hidromel2;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,16 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         LoginFragment login_page=new LoginFragment();
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.pagesLayout, login_page);
         transaction.commit();
 
 
-//        MenuFragment menu_page=new MenuFragment();
-//        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.pagesLayout, menu_page);
-//        transaction.commit();
+
     }
 
 }

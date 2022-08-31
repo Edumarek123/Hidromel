@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,11 @@ import android.widget.EditText;
 import com.google.android.material.snackbar.Snackbar;
 
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment{
 
     //atributos
     private EditText evUsuario;
     private EditText evSenha;
-    private Button btLogin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,23 +28,23 @@ public class LoginFragment extends Fragment {
 
         View login_page=inflater.inflate(R.layout.fragment_login, container, false);
 
-//        evUsuario = (EditText)findViewById(R.id.campo_email_login);
-//        evSenha = (EditText)findViewById(R.id.campo_senha_login);
+        evUsuario = (EditText)findViewById(R.id.campo_email_login);
+            evSenha = (EditText)findViewById(R.id.campo_senha_login);
 
         Button botao_login=(Button)login_page.findViewById(R.id.botao_login);
         botao_login.setOnClickListener(this::l_ogar);
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return login_page;
     }
 
     public void l_ogar(View v){
-//        MenuFragment menu_page=new MenuFragment();
-//        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(, menu_page);
-//        fragmentTransaction.commit();
+        MenuFragment menu_page=new MenuFragment();
+        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.pagesLayout, menu_page);
+        fragmentTransaction.commit();
 
     }
 
