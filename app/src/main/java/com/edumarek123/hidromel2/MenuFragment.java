@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment {
         ListView tanques_disponiveis=(ListView) menu_page.findViewById(R.id.lista_tanques);
 
         String tanques[]={"Tanque 1", "Tanque 2", "Tanque 3", "Tanque 4"};
-        ArrayAdapter<String> arr=new ArrayAdapter<String>(getActivity(), R.layout.fragment_menu, tanques);
+        ArrayAdapter<String> arr=new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tanques);
         tanques_disponiveis.setAdapter(arr);
 
         // Inflate the layout for this fragment
