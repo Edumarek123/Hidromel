@@ -1,11 +1,11 @@
-package Usuario;
+package com.edumarek123.hidromel2.usuario;
+
+import com.edumarek123.hidromel2.tanque.Tanque;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import Tanque.Tanque;
 
 
 public class Usuario {
@@ -32,10 +32,7 @@ public class Usuario {
     public void setSenha(String senha) {this.senha=senha;}
     public void setPermissao(String permissao) {this.permissao=permissao;}
     public void setTermosOK(boolean termosOK) {this.termosOK=termosOK;}
-
-    public void setTanques(){
-
-    }
+    public void setTanques(ArrayList<Tanque> tanques){this.tanques=tanques;}
 
     public JSONObject toJsonObject(){
         JSONObject arquivo=new JSONObject();
@@ -61,7 +58,12 @@ public class Usuario {
         this.setSenha("");
         this.setPermissao("");
         this.setTermosOK(false);
-        this.setTanques();
+
+        ArrayList<Tanque> TTT=new ArrayList<Tanque>();
+        Tanque t=new Tanque();
+        TTT.add(t);
+
+        this.setTanques(TTT);
     }
 
     public Usuario(JSONObject arquivo){

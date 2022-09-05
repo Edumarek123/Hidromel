@@ -1,4 +1,6 @@
-package Tanque;
+package com.edumarek123.hidromel2.tanque;
+
+import com.edumarek123.hidromel2.medicoes.Medicoes;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,9 +20,7 @@ public class Tanque {
     private Date previsaoTermino;
     private boolean estado;
 
-    private ArrayList<Float> temperatura;
-    private ArrayList<Float> densidade;
-    private ArrayList<Float> tempo;
+    private Medicoes medicoes;
 
     //metodos
     public String getNome() {return nome;}
@@ -30,6 +30,7 @@ public class Tanque {
     public Date getDataInicio() {return dataInicio;}
     public Date getPrevisaoTermino() {return previsaoTermino;}
     public boolean getEstado() {return estado;}
+    public Medicoes getMedicoes() {return medicoes;}
 
     public void setId(long id) {this.id=id;}
     public void setNome(String nome) {this.nome=nome;}
@@ -38,19 +39,12 @@ public class Tanque {
     public void setVolume(float volume) {this.volume=volume;}
     public void setDataInicio(Date dataInicio) {this.dataInicio=dataInicio;}
     public void setEstado(boolean estado) {this.estado=estado;}
+    public void setMedicoes(Medicoes medicoes) {this.medicoes=medicoes;}
 
     public void setPrevisaoTermino() {
 
     }
-    public void setDensidade() {
 
-    }
-    public void setTemperatura() {
-
-    }
-    public void setTempo() {
-
-    }
 
     public JSONObject toJSONObject(){
         JSONObject arquivo=new JSONObject();
@@ -80,6 +74,9 @@ public class Tanque {
         this.setDataInicio(null);
         this.setPrevisaoTermino();
         this.setEstado(false);
+
+        Medicoes m=new Medicoes();
+        this.setMedicoes(m);
     }
 
     public Tanque(JSONObject arquivo){

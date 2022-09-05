@@ -12,13 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.edumarek123.hidromel2.usuario.Usuario;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.io.Serializable;
 
 
 public class LoginFragment extends Fragment{
 
     //atributos
-    private EditText evUsuario;
+    private EditText evEmail;
     private EditText evSenha;
 
     @Override
@@ -27,7 +30,7 @@ public class LoginFragment extends Fragment{
 
         View login_page=inflater.inflate(R.layout.fragment_login, container, false);
 
-        evUsuario = (EditText)login_page.findViewById(R.id.campo_email_login);
+        evEmail = (EditText)login_page.findViewById(R.id.campo_email_login);
         evSenha = (EditText)login_page.findViewById(R.id.campo_senha_login);
 
         Button botao_login=(Button)login_page.findViewById(R.id.botao_login);
@@ -37,10 +40,15 @@ public class LoginFragment extends Fragment{
         // Inflate the layout for this fragment
         return login_page;
     }
-
+//
     public void l_ogar(View v){
-        if (evUsuario.getText().toString().equals("") && evSenha.getText().toString().equals("")){
+        if (evEmail.getText().toString().equals("") && evSenha.getText().toString().equals("")){
+            Usuario usuario=new Usuario();
+
+           Singleton.getInstance().setUsuario(usuario);
+
             MenuFragment menu_page=new MenuFragment();
+//            menu_page.setArguments(bundle_usuario);
             FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.pagesLayout, menu_page);
