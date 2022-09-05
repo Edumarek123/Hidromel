@@ -3,6 +3,8 @@ package Usuario;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import Tanque.Tanque;
 
 
@@ -14,8 +16,7 @@ public class Usuario {
     private String senha;
     private String permissao;
     private boolean termosOK;
-
-    private Tanque tanques[];
+    private ArrayList<Tanque> tanques;
 
     //metodos
     public String getNome() {return nome;}
@@ -23,11 +24,7 @@ public class Usuario {
     public String getSenha() {return senha;}
     public String getPermissao() {return permissao;}
     public boolean getTermosOK() {return termosOK;}
-
-    public Tanque getTanques() {
-
-        return null;
-    }
+    public ArrayList<Tanque> getTanques() {return tanques;}
 
     public void setId(long id) {this.id=id;}
     public void setNome(String nome) {this.nome=nome;}
@@ -64,6 +61,7 @@ public class Usuario {
         this.setSenha("");
         this.setPermissao("");
         this.setTermosOK(false);
+        this.setTanques();
     }
 
     public Usuario(JSONObject arquivo){

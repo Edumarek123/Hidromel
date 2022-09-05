@@ -3,6 +3,8 @@ package Tanque;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import java.util.Date;
 
 public class Tanque {
@@ -16,9 +18,9 @@ public class Tanque {
     private Date previsaoTermino;
     private boolean estado;
 
-    private float[] temperatura;
-    private float[] densidade;
-    private long[] tempo;
+    private ArrayList<Float> temperatura;
+    private ArrayList<Float> densidade;
+    private ArrayList<Float> tempo;
 
     //metodos
     public String getNome() {return nome;}
