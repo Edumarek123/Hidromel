@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.edumarek123.hidromel2.singleton.Singleton;
+import com.edumarek123.hidromel2.tanque.Tanque;
 import com.edumarek123.hidromel2.usuario.Usuario;
+
+import java.util.ArrayList;
 
 public class MenuFragment extends Fragment {
 
@@ -32,13 +35,31 @@ public class MenuFragment extends Fragment {
         Button botao_logout=(Button)menu_page.findViewById(R.id.botao_logout);
         botao_logout.setOnClickListener(this::d_eslogar);
 
-        this.usuario=Singleton.getInstance().getUsuario();
+        this.usuario= Singleton.getInstance().getUsuario();
+
+        ArrayList<Tanque> teste=new ArrayList<Tanque>();
+        for (int i=0;i<40;i++){
+            teste.add(new Tanque());
+            teste.get(i).setNome("Tanques "+String.valueOf(i+1));
+        }
+
+        usuario.setTanques(teste);
+
 
         ListView tanques_disponiveis=(ListView) menu_page.findViewById(R.id.lista_tanques);
 
-        String tanques[]={"Tanque 1", "Tanque 2", "Tanque 3", "Tanque 4"};
-        ArrayAdapter<String> arr=new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tanques);
-        tanques_disponiveis.setAdapter(arr);
+        String tanques[];
+        if (usuario.getTanques()==null){
+
+        }else{
+            tanques=new String[usuario.getTanques().size()];
+
+            for (int i=0;i<usuario.getTanques().size();i++)
+                tanques[i]=usuario.getTanques().get(i).getNome();
+
+            ArrayAdapter<String> arr=new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tanques);
+            tanques_disponiveis.setAdapter(arr);
+        }
 
         // Inflate the layout for this fragment
         return menu_page;

@@ -1,4 +1,4 @@
-package com.edumarek123.hidromel2;
+package com.edumarek123.hidromel2.singleton;
 
 import com.edumarek123.hidromel2.usuario.Usuario;
 

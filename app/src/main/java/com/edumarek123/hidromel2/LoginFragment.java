@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.edumarek123.hidromel2.singleton.Singleton;
 import com.edumarek123.hidromel2.usuario.Usuario;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.io.Serializable;
 
 
 public class LoginFragment extends Fragment{
