@@ -1,5 +1,6 @@
 package com.edumarek123.hidromel2;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -16,6 +19,7 @@ import android.widget.ListView;
 import com.edumarek123.hidromel2.singleton.Singleton;
 import com.edumarek123.hidromel2.tanque.Tanque;
 import com.edumarek123.hidromel2.usuario.Usuario;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -38,7 +42,7 @@ public class MenuFragment extends Fragment {
         this.usuario= Singleton.getInstance().getUsuario();
 
         ArrayList<Tanque> teste=new ArrayList<Tanque>();
-        for (int i=0;i<40;i++){
+        for (int i=0;i<4;i++){
             teste.add(new Tanque());
             teste.get(i).setNome("Tanques "+String.valueOf(i+1));
         }
@@ -59,6 +63,13 @@ public class MenuFragment extends Fragment {
 
             ArrayAdapter<String> arr=new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, tanques);
             tanques_disponiveis.setAdapter(arr);
+
+            tanques_disponiveis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView <?> parent, View view, int position, long id) {
+                    click_tanques(menu_page, usuario.getTanques().get(position));
+                }
+            });
         }
 
         // Inflate the layout for this fragment
@@ -72,6 +83,15 @@ public class MenuFragment extends Fragment {
         FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.pagesLayout, login_page);
+        fragmentTransaction.commit();
+    }
+
+    public void click_tanques(View v, Tanque t){
+        Singleton.getInstance().setTanque(t);
+        TanqueFragment tanque_page=new TanqueFragment();
+        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.pagesLayout, tanque_page);
         fragmentTransaction.commit();
     }
 }
