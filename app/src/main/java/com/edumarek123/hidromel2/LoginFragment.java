@@ -29,10 +29,10 @@ public class LoginFragment extends Fragment{
 
         View login_page=inflater.inflate(R.layout.fragment_login, container, false);
 
-        evEmail = (EditText)login_page.findViewById(R.id.campo_email_login);
-        evSenha = (EditText)login_page.findViewById(R.id.campo_senha_login);
+        evEmail = login_page.findViewById(R.id.campo_email_login);
+        evSenha = login_page.findViewById(R.id.campo_senha_login);
 
-        Button botao_login=(Button)login_page.findViewById(R.id.botao_login);
+        Button botao_login= login_page.findViewById(R.id.botao_login);
         botao_login.setOnClickListener(this::l_ogar);
 
 

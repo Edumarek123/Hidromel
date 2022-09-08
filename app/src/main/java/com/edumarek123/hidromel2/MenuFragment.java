@@ -36,7 +36,7 @@ public class MenuFragment extends Fragment {
             d_eslogar(menu_page);
         }
 
-        Button botao_logout=(Button)menu_page.findViewById(R.id.botao_logout);
+        Button botao_logout= menu_page.findViewById(R.id.botao_logout);
         botao_logout.setOnClickListener(this::d_eslogar);
 
         this.usuario= Singleton.getInstance().getUsuario();
@@ -44,15 +44,15 @@ public class MenuFragment extends Fragment {
         ArrayList<Tanque> teste=new ArrayList<Tanque>();
         for (int i=0;i<4;i++){
             teste.add(new Tanque());
-            teste.get(i).setNome("Tanques "+String.valueOf(i+1));
+            teste.get(i).setNome("Tanques "+ (i + 1));
         }
 
         usuario.setTanques(teste);
 
 
-        ListView tanques_disponiveis=(ListView) menu_page.findViewById(R.id.lista_tanques);
+        ListView tanques_disponiveis= menu_page.findViewById(R.id.lista_tanques);
 
-        String tanques[];
+        String[] tanques;
         if (usuario.getTanques()==null){
 
         }else{
@@ -87,11 +87,15 @@ public class MenuFragment extends Fragment {
     }
 
     public void click_tanques(View v, Tanque t){
-        Singleton.getInstance().setTanque(t);
-        TanqueFragment tanque_page=new TanqueFragment();
-        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.pagesLayout, tanque_page);
-        fragmentTransaction.commit();
-    }
+//        Singleton.getInstance().setTanque(t);
+//        TanqueFragment tanque_page=new TanqueFragment();
+//        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.pagesLayout, tanque_page);
+//        fragmentTransaction.commit();
+
+        Snackbar mySnackbar = Snackbar.make( v,
+                t.getNome(), Snackbar.LENGTH_SHORT);
+        mySnackbar.show();
+        }
 }

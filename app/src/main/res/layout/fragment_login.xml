@@ -14,13 +14,11 @@
         tools:layout_editor_absoluteY="-35dp">
 
         <ImageView
-            android:id="@+id/Bee1"
             android:layout_width="match_parent"
             android:layout_height="201dp"
             android:src="@drawable/bee1"/>
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email Usuário" />
@@ -34,7 +32,6 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Senha Usuário" />
