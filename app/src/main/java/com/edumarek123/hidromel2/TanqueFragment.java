@@ -30,17 +30,13 @@ public class TanqueFragment extends Fragment {
         Button botao_voltar= tanque_page.findViewById(R.id.botao_voltar);
         botao_voltar.setOnClickListener(this::v_oltar);
 
-//        WebView graficoDensidade=new WebView(null);
-//        graficoDensidade.findViewById(R.id.graficoDensidade);
+        WebView graficoDensidade=tanque_page.findViewById(R.id.graficoDensidade);
+        graficoDensidade.loadUrl("https://www.google.com.br/");
 
         // Inflate the layout for this fragment
         return tanque_page;
     }
     public void v_oltar(View v){
-        Snackbar mySnackbar = Snackbar.make( v,
-                "OKKKK", Snackbar.LENGTH_SHORT);
-        mySnackbar.show();
-
         MenuFragment menu_page=new MenuFragment();
         FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();

@@ -5,12 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".TanqueFragment">
 
-    
-
-    <Button
-        android:id="@+id/botao_voltar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="Voltar" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <WebView
+            android:id="@+id/graficoDensidade"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
+
+        <Button
+            android:id="@+id/botao_voltar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Voltar" />
+
+    </LinearLayout>
 
 </FrameLayout>
