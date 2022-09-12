@@ -87,12 +87,12 @@ public class MenuFragment extends Fragment {
     }
 
     public void click_tanques(View v, Tanque t){
-//        Singleton.getInstance().setTanque(t);
-//        TanqueFragment tanque_page=new TanqueFragment();
-//        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.pagesLayout, tanque_page);
-//        fragmentTransaction.commit();
+        Singleton.getInstance().setTanque(t);
+        TanqueFragment tanque_page=new TanqueFragment();
+        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.pagesLayout, tanque_page);
+        fragmentTransaction.commit();
 
         Snackbar mySnackbar = Snackbar.make( v,
                 t.getNome(), Snackbar.LENGTH_SHORT);
