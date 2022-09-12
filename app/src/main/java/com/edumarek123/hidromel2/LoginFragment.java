@@ -44,10 +44,9 @@ public class LoginFragment extends Fragment{
         if (evEmail.getText().toString().equals("") && evSenha.getText().toString().equals("")){
             Usuario usuario=new Usuario();
 
-           Singleton.getInstance().setUsuario(usuario);
+            Singleton.getInstance().setUsuario(usuario);
 
             MenuFragment menu_page=new MenuFragment();
-//            menu_page.setArguments(bundle_usuario);
             FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.pagesLayout, menu_page);
