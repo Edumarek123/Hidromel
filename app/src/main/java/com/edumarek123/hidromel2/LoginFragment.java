@@ -41,8 +41,9 @@ public class LoginFragment extends Fragment{
     }
 //
     public void l_ogar(View v){
-        if (evEmail.getText().toString().equals("") && evSenha.getText().toString().equals("")){
-            Usuario usuario=new Usuario();
+        Usuario usuario=new Usuario();
+
+        if (evEmail.getText().toString().equals(usuario.getEmail()) && evSenha.getText().toString().equals(usuario.getSenha())){
 
             Singleton.getInstance().setUsuario(usuario);
 

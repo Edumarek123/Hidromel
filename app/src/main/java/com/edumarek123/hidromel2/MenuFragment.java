@@ -39,6 +39,9 @@ public class MenuFragment extends Fragment {
         Button botao_logout= menu_page.findViewById(R.id.botao_logout);
         botao_logout.setOnClickListener(this::d_eslogar);
 
+        Button botao_cadastrar= menu_page.findViewById(R.id.botao_cadastrartanques);
+        botao_cadastrar.setOnClickListener(this::c_adastrar);
+
         this.usuario= Singleton.getInstance().getUsuario();
 
         ArrayList<Tanque> teste=new ArrayList<Tanque>();
@@ -55,7 +58,7 @@ public class MenuFragment extends Fragment {
         String[] tanques;
         if (usuario.getTanques()==null){
 
-        }else{
+        }else{ //adiciona tanques de teste
             tanques=new String[usuario.getTanques().size()];
 
             for (int i=0;i<usuario.getTanques().size();i++)
@@ -98,4 +101,12 @@ public class MenuFragment extends Fragment {
                 t.getNome(), Snackbar.LENGTH_SHORT);
         mySnackbar.show();
         }
+
+    public void c_adastrar(View v){
+        CadastrarTanques cadastartanque_page=new CadastrarTanques();
+        FragmentManager fragmentManager= getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.pagesLayout, cadastartanque_page);
+        fragmentTransaction.commit();
+    }
 }

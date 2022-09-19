@@ -1,6 +1,6 @@
 package com.edumarek123.hidromel2.tanque;
 
-import com.edumarek123.hidromel2.medicoes.Medicoes;
+import com.edumarek123.hidromel2.medicoes.Leitura;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +20,7 @@ public class Tanque {
     private Date previsaoTermino;
     private boolean estado;
 
-    private Medicoes medicoes;
+    private ArrayList<Leitura> leitura;
 
     //metodos
     public String getNome() {return nome;}
@@ -30,7 +30,7 @@ public class Tanque {
     public Date getDataInicio() {return dataInicio;}
     public Date getPrevisaoTermino() {return previsaoTermino;}
     public boolean getEstado() {return estado;}
-    public Medicoes getMedicoes() {return medicoes;}
+    public ArrayList<Leitura> getLeitura() {return leitura;}
 
     public void setId(long id) {this.id=id;}
     public void setNome(String nome) {this.nome=nome;}
@@ -39,29 +39,10 @@ public class Tanque {
     public void setVolume(float volume) {this.volume=volume;}
     public void setDataInicio(Date dataInicio) {this.dataInicio=dataInicio;}
     public void setEstado(boolean estado) {this.estado=estado;}
-    public void setMedicoes(Medicoes medicoes) {this.medicoes=medicoes;}
+    public void setLeitura(ArrayList<Leitura> leitura) {this.leitura=leitura;}
 
     public void setPrevisaoTermino() {
 
-    }
-
-
-    public JSONObject toJSONObject(){
-        JSONObject arquivo=new JSONObject();
-        try {
-            arquivo.put("id", this.id);
-            arquivo.put("nome", this.nome);
-            arquivo.put("bebida", this.bebida);
-            arquivo.put("especificacoes", this.especificacoes);
-            arquivo.put("volume", this.volume);
-            arquivo.put("dataInicio", this.dataInicio);
-            arquivo.put("previsaoTermino", this.previsaoTermino);
-            arquivo.put("estado", this.estado);
-        }catch (JSONException exception){
-            exception.printStackTrace();
-        }
-
-        return arquivo;
     }
 
     //construtores
@@ -74,9 +55,26 @@ public class Tanque {
         this.setDataInicio(null);
         this.setPrevisaoTermino();
         this.setEstado(false);
+        leitura=null;
+    }
 
-        Medicoes m=new Medicoes();
-        this.setMedicoes(m);
+    public JSONObject toJsonObject(){
+        JSONObject arquivo=new JSONObject();
+        try {
+            arquivo.put("id", this.id);
+            arquivo.put("nome", this.nome);
+            arquivo.put("bebida", this.bebida);
+            arquivo.put("especificacoes", this.especificacoes);
+            arquivo.put("volume", this.volume);
+            arquivo.put("dataInicio", this.dataInicio);
+            arquivo.put("previsaoTermino", this.previsaoTermino);
+            arquivo.put("estado", this.estado);
+            //arquivo.put("Leituras", this.leitura);
+        }catch (JSONException exception){
+            exception.printStackTrace();
+        }
+
+        return arquivo;
     }
 
     public Tanque(JSONObject arquivo){
